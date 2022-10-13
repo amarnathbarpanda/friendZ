@@ -3,7 +3,14 @@ const app = express();
 const ejs = require('ejs');
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
+// to read and write  cookies
+const cookieParser = require('cookie-parser'); 
 const port = 8000;
+
+// It parses incoming requests with urlencoded payloads and is based on body-parser
+app.use(express.urlencoded())
+// accessing cookies
+app.use(cookieParser());
 
 app.use(express.static('./assets'));
 
