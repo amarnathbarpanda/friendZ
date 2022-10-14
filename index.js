@@ -12,6 +12,17 @@ const passportLocal = require('./config/passport-local-strategy');
 //this wont work 
 // const MongoStore = require('connect-mongo')(session); 
 const MongoStore = require('connect-mongo'); 
+const sassMiddleware = require('node-sass-middleware');
+
+app.use(sassMiddleware({
+    src: './assets/scss',
+    dest: './assets/css',
+    debug: true,
+    outputStyle: 'expanded',
+    prefix: '/css'
+}));
+
+
 const port = 8000;
 
 // It parses incoming requests with urlencoded payloads and is based on body-parser
